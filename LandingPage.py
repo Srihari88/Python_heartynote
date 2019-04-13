@@ -7,7 +7,7 @@ class LoginORM(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        print(" Open Application")
+        print("Open Application")
         cls.driver = webdriver.Chrome(executable_path='/Library/Python/2.7/site-packages/chromedriver')
 
         cls.driver.get("https://heartynote.com/")

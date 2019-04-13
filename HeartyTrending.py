@@ -9,21 +9,20 @@ class heartyTV(unittest.TestCase):
     def setUpClass(cls):
         print(" Open Application")
         cls.driver = webdriver.Chrome(executable_path='/Library/Python/2.7/site-packages/chromedriver')
+        cls.driver.get("https://heartynote.com")
 
-        cls.driver.get("https://heartynote.com/")
+        time.sleep(5)
 
-
-def test_verifyTV_z(self):
-    self.driver.find_element_by_xpath("//a[@href='/trending']").click()
-    VideosList = self.driver.find_elements_by_xpath("//div[@id='trending-body']/a")
-    time.sleep(7)
-    for video in VideosList:
-        video.click()
-        time.sleep(7)
+    def test_PlayAllVideos(self):
+        VideoViews = self.driver.find_elements_by_xpath("//div[@class='trending-content']/a")
+        for videos in VideoViews:
+            videos.click()
+            time.sleep(8)
+            self.driver.back()
 
     @classmethod
     def tearDownClass(self):
-        self.driver.close()
+        # self.driver.close()
         print("Close Application")
 
 
